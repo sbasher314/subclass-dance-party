@@ -1,0 +1,21 @@
+Types of Dancers:
+
+Rotating Dancer -
+  Direction of rotation
+  speed of rotation
+
+Moving Dancer -
+  fromLocation property (maybe)
+  toLocation property
+  speed of movement
+  translation function
+
+  Subclasses:
+    Bouncy Dancer -
+      TBD
+      parabolic functions - y = a * x^2 + b * x + c
+        determine a, b and c variables and then the constraints of y and x as positions
+        execute the function over some sort of set timeout...
+        (probably over thinking this.)
+
+

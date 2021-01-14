@@ -25,3 +25,20 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+
+.square {
+  border: 10px solid blue;
+  border-radius:0px;
+}
+/*.rotate {
+  animation: rotate 1s linear;
+}*/
+
+@keyframes rotate {
+  from {
+    rotate: 0deg;
+  }
+  to {
+    rotate: 359deg;
+  }
+}
