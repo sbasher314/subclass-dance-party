@@ -4,6 +4,10 @@ Rotating Dancer -
   Direction of rotation
   speed of rotation
 
+  SubClasses:
+    Shielded Dancer -
+      Invincible to damage / being eaten
+
 Moving Dancer -
   fromLocation property (maybe)
   toLocation property
@@ -17,5 +21,8 @@ Moving Dancer -
         determine a, b and c variables and then the constraints of y and x as positions
         execute the function over some sort of set timeout...
         (probably over thinking this.)
+    Dominator Dancer -
+      Eat the Dancers - PacMan!?!?
+        -- can not eat shield dancer! Turn away!
 
 
