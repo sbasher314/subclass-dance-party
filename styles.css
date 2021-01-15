@@ -25,20 +25,13 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
-
+.triangle {
+  border-radius: 0;
+  transition: all 1s;
+  border: 10px solid transparent;
+  border-bottom: 10px solid green;
+}
 .square {
   border: 10px solid blue;
   border-radius:0px;
-}
-/*.rotate {
-  animation: rotate 1s linear;
-}*/
-
-@keyframes rotate {
-  from {
-    rotate: 0deg;
-  }
-  to {
-    rotate: 359deg;
-  }
 }

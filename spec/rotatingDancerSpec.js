@@ -12,10 +12,11 @@ describe('rotatingDancer', function() {
     expect(rotatingDancer.$node).to.be.an.instanceof(jQuery);
   });
 
-  it('should have a step function that makes its node blink', function() {
-    sinon.spy(rotatingDancer.$node, 'rotate');
+  it('should have a step function that makes it rotate', function() {
+    sinon.spy(rotatingDancer.$node[0], 'animate');
+    expect(rotatingDancer.$node[0].animate.called).to.be.false;
     rotatingDancer.step();
-    expect(rotatingDancer.$node.animate.called).to.be.true;
+    expect(rotatingDancer.$node[0].animate.called).to.be.true;
   });
 
   describe('dance', function() {
