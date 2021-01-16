@@ -27,24 +27,49 @@ body, a:link, a:visited, a:active{
   background-color: #777;
 }
 .dancer{
-  border: 25px solid red;
-  width:0; height:0;
-  border-radius:50%;
+  border: 0 solid red;
+  width:64px; height:64px;
   position: absolute;
   transition: all .25s;
 }
-.triangle {
+/*.triangle {
   border-radius: 0;
   transition: top 0s, left 0s;
   border: 25px solid transparent;
   border-bottom: 25px solid green;
   filter: drop-shadow(5px 5px 3px #555);
+}*/
+
+.dancer.moving {
+  background-image: url('src/arrow.png');
+  background-size: 64px;
+  filter: drop-shadow(5px 5px 3px #555);
 }
 
 .dancer:hover {
-  border-width: 40px;
-  margin: -15px;
+  width: 64px;
+  height:64px;
+  margin: -32px;
   filter: drop-shadow(0px 0px 10px #000c);
+}
+
+.dancer.moving:hover {
+  margin: 0;
+}
+
+.dancer.blink {
+  background-image: url('src/bulb.png');
+  width: 64px;
+  height: 64px;
+  background-size: 64px 64px;
+}
+
+.dancer.blink:hover {
+  background-image: url('src/bulb.png');
+  width: 128px;
+  height: 128px;
+  background-size: 128px 128px;
+  filter: drop-shadow(0px 0px 10px #fffc);
 }
 
 .linedUp .dancer {
@@ -52,9 +77,21 @@ body, a:link, a:visited, a:active{
   margin: 5px;
 }
 
-.square {
-  border: 25px solid blue;
+.rotate {
+  border: 0px solid blue;
   border-radius:0px;
+  background-image: url('src/dizzyDancer.png');
+  background-size: 64px 64px;
+  width: 64px;
+  height: 64px;
+}
+
+.rotate:hover {
+  border: 0;
+  margin: -32px;
+  background-size: 128px 128px;
+  width: 128px;
+  height: 128px;
 }
 
 .dancefloor {
@@ -78,6 +115,7 @@ body, a:link, a:visited, a:active{
 }
 
 .dancefloor div.linedUp {
+  display: flex;
   position: relative;
   padding: 25px;
 }
