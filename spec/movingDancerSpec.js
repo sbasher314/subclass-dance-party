@@ -13,9 +13,9 @@ describe('movingDancer', function() {
   });
 
   it('should have a step function that makes it move', function() {
-    sinon.spy(movingDancer.$node, 'css');
+    sinon.spy(movingDancer.$node, 'animate');
     movingDancer.step();
-    expect(movingDancer.$node.css.called).to.be.true;
+    expect(movingDancer.$node.animate.called).to.be.true;
   });
 
   describe('dance', function() {

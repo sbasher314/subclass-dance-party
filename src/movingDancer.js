@@ -21,16 +21,16 @@ MovingDancer.prototype.step = function() {
   if (this.hasMoved) {
     var styleSettings = {
       top: this.top,
-      left: this.left,
-      transition: 'all ' + this.timeBetweenSteps / 1000 + 's ' + this.transitionType
+      left: this.left//,
+      //transition: 'all ' + this.timeBetweenSteps / 1000 + 's ' + this.transitionType
     };
   } else {
     var styleSettings = {
       top: this.newTop,
-      left: this.newLeft,
-      transition: 'all ' + this.timeBetweenSteps / 1000 + 's ' + this.transitionType
+      left: this.newLeft//,
+      //transition: 'all ' + this.timeBetweenSteps / 1000 + 's ' + this.transitionType
     };
   }
   this.hasMoved = !this.hasMoved;
-  this.$node.css(styleSettings);
+  this.$node.animate(styleSettings, this.timeBetweenSteps / 1000);
 };
