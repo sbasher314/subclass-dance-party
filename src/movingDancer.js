@@ -10,8 +10,8 @@ var makeMovingDancer = function(top, left, timeBetweenSteps) {
 var MovingDancer = function(top, left, timeBetweenSteps, containerClass) {
   Dancer.call(this, top, left, timeBetweenSteps, containerClass);
   this.$node.addClass('moving triangle');
-  this.newTop = this.top + Math.random() * 200 - 100;
-  this.newLeft = this.left + Math.random() * 200 - 100;
+  this.newTop = this.top + Math.random() * 400 - 200;
+  this.newLeft = this.left + Math.random() * 400 - 200;
   this.hasMoved = false;
   this.transitionType = 'linear';
 };

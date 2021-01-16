@@ -47,28 +47,27 @@ body, a:link, a:visited, a:active{
 }
 
 .dancer:hover {
-  width: 64px;
-  height:64px;
-  margin: -32px;
+  width: 96px;
+  height:96px;
+  margin: -16px;
+  background-size: 96px;
   filter: drop-shadow(0px 0px 10px #000c);
 }
 
-.dancer.moving:hover {
-  margin: 0;
-}
 
 .dancer.blink {
   background-image: url('src/bulb.png');
   width: 64px;
   height: 64px;
-  background-size: 64px 64px;
+  background-size: 64px;
 }
 
 .dancer.blink:hover {
   background-image: url('src/bulb.png');
-  width: 128px;
-  height: 128px;
-  background-size: 128px 128px;
+  width: 96px;
+  height: 96px;
+  margin: -16px;
+  background-size: 96px;
   filter: drop-shadow(0px 0px 10px #fffc);
 }
 
@@ -88,10 +87,10 @@ body, a:link, a:visited, a:active{
 
 .rotate:hover {
   border: 0;
-  margin: -32px;
-  background-size: 128px 128px;
-  width: 128px;
-  height: 128px;
+  margin: -16px;
+  background-size: 96px 96px;
+  width: 96px;
+  height: 96px;
 }
 
 .dancefloor {
