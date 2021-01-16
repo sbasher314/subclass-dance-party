@@ -5,6 +5,7 @@ body{
   margin: 0px;
   background-color: rgb(143, 76, 0);
   font-size: 18px;
+  background-image: url('./src/tileBackground.jpg');
 }
 body, a:link, a:visited, a:active{
   color: goldenrod;
@@ -48,6 +49,7 @@ body, a:link, a:visited, a:active{
 
 .linedUp .dancer {
   position: relative;
+  margin: 5px;
 }
 
 .square {
@@ -58,15 +60,13 @@ body, a:link, a:visited, a:active{
 .dancefloor {
   display: block;
   position: relative;
-  width: 90%;
-  left: 5%;
-  height: calc(100% - 200px);
-  top: 100px;
 }
 
 .dancefloor.linedUp {
   display:flex;
   position: absolute;
+  top: 100px;
+  width:  100%;
 }
 
 .dancefloor div {
@@ -79,4 +79,5 @@ body, a:link, a:visited, a:active{
 
 .dancefloor div.linedUp {
   position: relative;
+  padding: 25px;
 }
