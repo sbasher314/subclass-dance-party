@@ -55,3 +55,41 @@ Dancer.prototype.mouseOver = function(e) {
   $(e.target).remove();
   delete this;
 };
+
+Dancer.prototype.distanceFrom = function(top, left) {
+  var diffInTop = Math.abs(top - this.top);
+  var diffInLeft = Math.abs(left - this.left);
+  var distance = (diffInTop ** 2 + diffInLeft ** 2) ** 0.5;
+
+  return distance;
+};
+
+Dancer.prototype.nClosestDancers = function(n) {
+  var dancerDistances = [];
+  var closestDancers = [];
+  for (var i = 0; i < window.dancers.length; i++) {
+    let comparison = window.dancers[i];
+    dancerDistances.push(this.distanceFrom(comparison.top, comparison.left));
+  }
+  // suuuuper inneficent but it works
+  while (closestDancers.length < n) {
+    var lowestDistanceIndex;
+    var lowestDistance = 1000;
+    var zeroCount = 0;
+    for (var i = 0; i < dancerDistances.length; i++) {
+      if (dancerDistances[i] > 0 && dancerDistances[i] < lowestDistance) {
+        lowestDistanceIndex = i;
+        lowestDistance = dancerDistances[i];
+      }
+      if (dancerDistances[i] === 0) {
+        zeroCount++;
+      }
+    }
+
+    if (zeroCount === window.dancers.length) { break; }
+
+    dancerDistances[lowestDistanceIndex] = 0;
+    closestDancers.push(window.dancers[lowestDistanceIndex]);
+  }
+  return closestDancers;
+};
