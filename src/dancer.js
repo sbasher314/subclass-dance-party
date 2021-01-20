@@ -11,6 +11,7 @@ var Dancer = function(top, left, timeBetweenSteps, containerClass) {
   this.id = Date.now();
   this.$node = $('<span class="dancer" id=' + this.id + '></span>');
   this.$node.appendTo(containerClass);
+  this.$node.on('mouseover', this.mouseOver);
   this.setPosition(top, left);
   this.css = this.setPosition;
   this.step();
@@ -42,4 +43,15 @@ Dancer.prototype.lineUp = function() {
     this.css = this.$node.attr('style');
     this.$node.removeAttr('style');
   }
+};
+
+Dancer.prototype.mouseOver = function(e) {
+  var targetID = $(e.target).attr('id');
+  for (var i = 0; i < window.dancers.length; i++) {
+    if (window.dancers[i].id === Number(targetID)) {
+      window.dancers.splice(i, 1);
+    }
+  }
+  $(e.target).remove();
+  delete this;
 };
