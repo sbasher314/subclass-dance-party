@@ -21,7 +21,7 @@ describe('Addtional Specs', function() {
     rotatingDancer = makeRotatingDancer(10, 20, timeBetweenSteps);
     window.dancers.push(rotatingDancer);
     clock.tick(timeBetweenSteps);
-    secondDancer = makeMovingDancer(10, 10, timeBetweenSteps);
+    secondDancer = makeMovingDancer(10, 50, timeBetweenSteps);
     window.dancers.push(secondDancer);
     clock.tick(timeBetweenSteps);
     thirdDancer = makeRotatingDancer(20, 20, timeBetweenSteps);
@@ -34,25 +34,17 @@ describe('Addtional Specs', function() {
     expect(window.dancers.length).to.equal(2);
   });
 
-  it('should set color ', function() {
+  it('Should change color when close to other dancers', function() {
     sinon.spy(rotatingDancer.$node, 'addClass');
     expect(rotatingDancer.$node.addClass.called).to.be.false;
     rotatingDancer.step();
     expect(rotatingDancer.$node.addClass.called).to.be.true;
+    expect(rotatingDancer.$node.hasClass('closeTo')).to.be.true;
   });
 
-  describe('dance', function() {
-    it('should call step at least once per second', function() {
-      sinon.spy(rotatingDancer, 'step');
-      expect(rotatingDancer.step.callCount).to.be.equal(0);
-      clock.tick(timeBetweenSteps); // ? it seems an extra tick is necessary...
-      clock.tick(timeBetweenSteps);
-
-      expect(rotatingDancer.step.callCount).to.be.equal(1);
-
-      clock.tick(timeBetweenSteps);
-      expect(rotatingDancer.step.callCount).to.be.equal(2);
-    });
+  it('Should find correct closest Dancer', function() {
+    expect(rotatingDancer.nClosestDancers(2)[0]).to.eql(thirdDancer);
+    expect(rotatingDancer.nClosestDancers(2)[1]).to.eql(secondDancer);
   });
 
 });
