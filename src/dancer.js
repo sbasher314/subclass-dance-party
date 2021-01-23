@@ -15,7 +15,7 @@ var Dancer = function(top, left, timeBetweenSteps, containerClass) {
   this.setPosition(top, left);
   this.css = this.setPosition;
   this.step();
-  this.isLinedUp = window.dancers['linedUp'];
+  this.isLinedUp = window.linedUp;
 };
 
 Dancer.prototype.setPosition = function(top, left) {
@@ -59,7 +59,7 @@ Dancer.prototype.lineUp = function() {
   } else {
     this.isLinedUp = true;
     $(this.containerClass).addClass('linedUp');
-    this.css = this.$node.attr('style');
+    this.css = this.$node.css('left') + this.$node.css('right');
     this.$node.removeAttr('style');
   }
 };

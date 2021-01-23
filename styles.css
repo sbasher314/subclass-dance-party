@@ -31,6 +31,10 @@ body, a:link, a:visited, a:active{
   width:64px; height:64px;
   position: absolute;
   transition: all .25s;
+  margin-top: -32px;
+  margin-left: -32px;
+  margin-right: 32px;
+  margin-bottom: 32px;
 }
 
 .dancer.closeTo {

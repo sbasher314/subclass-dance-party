@@ -1,6 +1,6 @@
 $(document).ready(function() {
   window.dancers = [];
-  window.dancers['linedUp'] = false;
+  window.linedUp = false;
 
   $('.addDancerButton').on('click', function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -32,7 +32,7 @@ $(document).ready(function() {
   });
 
   $('.lineUpButton').on('click', function(event) {
-    dancers['linedUp'] = !dancers['linedUp'];
+    linedUp = !linedUp;
     $('.dancefloor').toggleClass('linedUp');
     for (var i = 0; i < dancers.length; i++) {
       dancers[i].lineUp();

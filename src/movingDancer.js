@@ -39,7 +39,7 @@ MovingDancer.prototype.step = function() {
     }
     this.hasMoved = !this.hasMoved;
     this.$node.animate(styleSettings, this.timeBetweenSteps);
-    this.css = this.$node.attr('style');
+    this.css = this.$node.css('left') + this.$node.css('right');
   } else if (this.isLinedUp === true) {
     this.$node.removeAttr('style');
   }
