@@ -28,7 +28,11 @@ Dancer.prototype.setPosition = function(top, left) {
 };
 
 Dancer.prototype.step = function() {
-  this.setClosestDancer();
+  if (!this.isLinedUp) {
+    this.setClosestDancer();
+  } else {
+    this.$node.removeClass('closeTo');
+  }
   setTimeout(this.step.bind(this), this.timeBetweenSteps);
 };
 
