@@ -33,7 +33,10 @@ Dancer.prototype.step = function() {
 };
 
 Dancer.prototype.setClosestDancer = function() {
-  if (window.dancers.length >= 1) {
+  if (window.dancers.length === 1) {
+    this.$node.removeClass('closeTo');
+  }
+  if (window.dancers.length > 1) {
     var closestDancer = this.nClosestDancers(1)[0];
     var top = parseInt(this.$node.css('top'));
     var left = parseInt(this.$node.css('left'));
@@ -42,9 +45,6 @@ Dancer.prototype.setClosestDancer = function() {
       closestDancer.$node.addClass('closeTo');
     }
     if (closestDancer.distanceFrom(top, left) > 100) {
-      this.$node.removeClass('closeTo');
-    }
-    if (window.dancers.length === 1) {
       this.$node.removeClass('closeTo');
     }
   }
