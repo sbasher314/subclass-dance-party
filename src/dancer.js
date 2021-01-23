@@ -28,7 +28,26 @@ Dancer.prototype.setPosition = function(top, left) {
 };
 
 Dancer.prototype.step = function() {
+  this.setClosestDancer();
   setTimeout(this.step.bind(this), this.timeBetweenSteps);
+};
+
+Dancer.prototype.setClosestDancer = function() {
+  if (window.dancers.length >= 1) {
+    var closestDancer = this.nClosestDancers(1)[0];
+    var top = parseInt(this.$node.css('top'));
+    var left = parseInt(this.$node.css('left'));
+    if (closestDancer.distanceFrom(top, left) <= 100) {
+      this.$node.addClass('closeTo');
+      closestDancer.$node.addClass('closeTo');
+    }
+    if (closestDancer.distanceFrom(top, left) > 100) {
+      this.$node.removeClass('closeTo');
+    }
+    if (window.dancers.length === 1) {
+      this.$node.removeClass('closeTo');
+    }
+  }
 };
 
 Dancer.prototype.lineUp = function() {
@@ -46,6 +65,7 @@ Dancer.prototype.lineUp = function() {
 };
 
 Dancer.prototype.mouseOver = function(e) {
+  console.log(e);
   var targetID = $(e.target).attr('id');
   for (var i = 0; i < window.dancers.length; i++) {
     if (window.dancers[i].id === Number(targetID)) {
@@ -74,7 +94,7 @@ Dancer.prototype.nClosestDancers = function(n) {
   // suuuuper inneficent but it works
   while (closestDancers.length < n) {
     var lowestDistanceIndex;
-    var lowestDistance = 1000;
+    var lowestDistance = 5000;
     var zeroCount = 0;
     for (var i = 0; i < dancerDistances.length; i++) {
       if (dancerDistances[i] > 0 && dancerDistances[i] < lowestDistance) {
@@ -86,7 +106,7 @@ Dancer.prototype.nClosestDancers = function(n) {
       }
     }
 
-    if (zeroCount === window.dancers.length) { break; }
+    if (zeroCount === window.dancers.length || zeroCount > n) { break; }
 
     dancerDistances[lowestDistanceIndex] = 0;
     closestDancers.push(window.dancers[lowestDistanceIndex]);

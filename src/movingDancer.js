@@ -10,8 +10,8 @@ var makeMovingDancer = function(top, left, timeBetweenSteps) {
 var MovingDancer = function(top, left, timeBetweenSteps, containerClass) {
   Dancer.call(this, top, left, timeBetweenSteps, containerClass);
   this.$node.addClass('moving triangle');
-  this.newTop = this.top + Math.random() * 400 - 200;
-  this.newLeft = this.left + Math.random() * 400 - 200;
+  this.newTop = this.top + Math.random() * 200 - 100;
+  this.newLeft = this.left + Math.random() * 200 - 100;
   this.hasMoved = false;
   this.transitionType = 'linear';
 };
@@ -22,7 +22,6 @@ MovingDancer.prototype.constructor = MovingDancer;
 MovingDancer.prototype.oldStep = MovingDancer.prototype.step;
 
 MovingDancer.prototype.step = function() {
-  this.oldStep();
   if (this.isLinedUp === false) {
     //this.$node.css(this.css);
     if (this.hasMoved) {
@@ -44,4 +43,5 @@ MovingDancer.prototype.step = function() {
   } else if (this.isLinedUp === true) {
     this.$node.removeAttr('style');
   }
+  this.oldStep();
 };
