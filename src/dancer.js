@@ -65,7 +65,6 @@ Dancer.prototype.lineUp = function() {
 };
 
 Dancer.prototype.mouseOver = function(e) {
-  console.log(e);
   var targetID = $(e.target).attr('id');
   for (var i = 0; i < window.dancers.length; i++) {
     if (window.dancers[i].id === Number(targetID)) {
